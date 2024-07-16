@@ -48,6 +48,26 @@ function createBox(item){
     main.appendChild(box);
 }
 
+// Store Voices
+let voices = [];
+const synth = window.speechSynthesis;
+
+function Voices(){
+
+    setTimeout(() => {
+        voices = synth.getVoices();
+    
+        voices.forEach(voice => {
+            const option = document.createElement('option');
+            option.value = voice.name;
+            option.innerText = `${voice.name} ${voice.lang}`;
+    
+            voicesSelect.appendChild(option);
+        });
+    }, 1000);
+}
+Voices();
+
 // Show Text box
 toggleButton.addEventListener('click', () => textbox.style.transform = 'translate(-50%, 0px)');
 
