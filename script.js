@@ -44,9 +44,18 @@ function createBox(item){
         <p class="info">${text}</p>
     `;
 
+    box.addEventListener('click', () => {
+        setTextMessage(text);
+        speakText();
+    });
+
     // Append every box element to main
     main.appendChild(box);
 }
+
+// Init speach synth
+const message = new SpeechSynthesisUtterance();
+
 
 // Store Voices
 let voices = [];
@@ -67,6 +76,19 @@ function Voices(){
     }, 1000);
 }
 Voices();
+
+// Set text
+function setTextMessage(text){
+    message.text = text;
+}
+
+// Speak text
+function speakText(){
+    speechSynthesis.speak(message);
+}
+
+// Voices changed
+speechSynthesis.addEventListener('voiceschanged', Voices());
 
 // Show Text box
 toggleButton.addEventListener('click', () => textbox.style.transform = 'translate(-50%, 0px)');
