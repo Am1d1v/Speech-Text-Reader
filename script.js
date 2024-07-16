@@ -103,3 +103,9 @@ closeButton.addEventListener('click', () => textbox.style.transform = 'translate
 
 // Change voice
 voicesSelect.addEventListener('change', setVoice);
+
+// Read text button
+readButton.addEventListener('click', () => {
+    setTextMessage(textarea.value);
+    speakText();
+});
