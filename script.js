@@ -3,6 +3,7 @@
 const main = document.querySelector('main');
 const voicesSelect = document.querySelector('#voices');
 const textarea = document.querySelector('#text');
+const textbox = document.querySelector('#text-box');
 const readButton = document.querySelector('#read');
 const toggleButton = document.querySelector('#toggle');
 const closeButton = document.querySelector('#close');
@@ -46,3 +47,9 @@ function createBox(item){
     // Append every box element to main
     main.appendChild(box);
 }
+
+// Show Text box
+toggleButton.addEventListener('click', () => textbox.style.transform = 'translate(-50%, 0px)');
+
+// Hide Text box
+closeButton.addEventListener('click', () => textbox.style.transform = 'translate(-50%, -900px)');
