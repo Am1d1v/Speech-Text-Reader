@@ -87,6 +87,11 @@ function speakText(){
     speechSynthesis.speak(message);
 }
 
+// Set Voice
+function setVoice(event){
+    message.voice = voices.find(voice => voice.name === event.target.value);
+}
+
 // Voices changed
 speechSynthesis.addEventListener('voiceschanged', Voices());
 
@@ -95,3 +100,6 @@ toggleButton.addEventListener('click', () => textbox.style.transform = 'translat
 
 // Hide Text box
 closeButton.addEventListener('click', () => textbox.style.transform = 'translate(-50%, -900px)');
+
+// Change voice
+voicesSelect.addEventListener('change', setVoice);
